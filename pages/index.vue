@@ -1,7 +1,9 @@
 <template>
   <div>
     <div v-for="home in homes" :key="home.objectId" style="float: left;margin: 10px">
-      <home-card :home="home"/>
+      <NuxtLink :to="`/home/${home.objectID}`" prefetch>
+        <home-card :home="home"/>
+      </NuxtLink>
     </div>
   </div>
 </template>
@@ -15,7 +17,7 @@ export default {
       meta: [{
         name: 'description',
         content: 'Thats a homepage',
-        hid:'description'
+        hid: 'description'
       }]
     }
   },
