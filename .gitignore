@@ -35,3 +35,4 @@
 /.nuxt/server.js
 /.nuxt/utils.js
 /data/home.json
+/.idea/

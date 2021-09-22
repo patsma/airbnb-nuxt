@@ -16,7 +16,6 @@
   </div>
 </template>
 <script>
-import homes from '~/data/home'
 
 export default {
   head() {
@@ -25,20 +24,16 @@ export default {
 
     }
   },
-  data() {
-    return {
-      home: {}
-    }
-  },
+
   methods: {},
   mounted() {
     this.$maps.showMap(this.$refs.map, this.home._geoloc.lat, this.home._geoloc.lng)
   },
-  async created() {
-    // console.log(this.$route)
-    this.home = homes.find((home) => home.objectID === this.$route.params.id)
-    const homeData = await this.$dataApi.getHome(this.$route.params.id)
-    console.log(homeData)
+  async asyncData({params, $dataApi}) {
+    const home = await $dataApi.getHome(params.id)
+    return {
+      home,
+    }
   }
 }
 </script>
