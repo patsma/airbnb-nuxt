@@ -30,7 +30,6 @@ export default function (context, inject) {
   }
 
   function renderMap(canvas, lat, lng) {
-    console.log("mounted");
     const mapOptions = {
       zoom: 18,
       center: new window.google.maps.LatLng(lat, lng),
